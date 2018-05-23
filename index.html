@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Visualizing the ARKeth Blockchain Transactions</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="row">
+          <div class="page-header">
+            <h1>Visualizing the ARKeth Blockchain Transactions</h1>
+          </div>
+        </div>
+      </header>
+      <div class="row">
+        <div class="span3">
+          <button id="pause_button" onclick="toggle_pause()">Pause</button>
+          <h2>What is this?</h2> 
+          
+          <p>
+            This is a way of plotting the behavior of
+            many simultaneous transactions at once. Each circle corresponds to a set of transactions,
+            and the size and color of the circle is determined by how
+            long the transaction on the ARKeth simulation takes to execute. If the transaction does not
+            complete in the allotted time frame, then we color the circle black.
+          </p>
+          
+          <p>
+            Transactions are generated as random simulated DAG Tangle transaction, since any
+            multiplex transaction is valid Tangle/Block chain transaction. We
+            map these transaction into a 2D plane using
+            the <a href="http://en.wikipedia.org/wiki/Hilbert_curve">Hilbert
+            Curve</a>.
+          </p>
+
+          <p>
+            The Tangle Transaction space starts small but increases over
+            time. Since longer taking transactions can take longer to complete,
+            this is why the circles get larger over time.
+          </p>
+
+          <p>
+            For more information, send me an email at josefsosa@arketh.com
+          </p>
+        </div>
+        <div class="span8">
+          <canvas id="#ARKeth" width="600" height="600"></canvas>
+        </div>
+      </div>
+
+      <footer>
+        <div class="row, modal-footer" >
+          <p>Created by Jose F. Sosa
+        </div>
+      </footer>
+
+    </div>
+
+    <script src="ARKeth.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
