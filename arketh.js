@@ -332,34 +332,34 @@ function startup() {
             var color = count / limit;
             color = Math.floor(color * 360);
             
-            //cx.fillStyle = "rgba(" + color + ", " + color + ", " + color + ", 0.5)";
+            cx.fillStyle = "rgba(" + color + ", " + color + ", " + color + ", 0.10)";
             
             if(count == limit)
                 cx.fillStyle = "rgb(0, 0, 0)";
             else
                 cx.fillStyle = "hsl(" + color + ", 100%, 50%)";
 
-            //cx.strokeStyle = "hsl(" + max_len * 360 / N / N + ", 100%, 50%)";
+            cx.strokeStyle = "hsl(" + max_len * 360 / N / N + ", 100%, 50%)";
             
-            //if(old_pos != false) {
-            //    cx.beginPath();
-            //    cx.moveTo(old_pos[0] * scale, old_pos[1] * scale);
-            //    cx.lineTo(pos[0] * scale, pos[1] * scale);
-            //    cx.stroke();
-            //    cx.closePath();
-            //}
-            //old_pos = pos;
+            if(old_pos != false) {
+               cx.beginPath();
+               cx.moveTo(old_pos[0] * scale, old_pos[1] * scale);
+               cx.lineTo(pos[0] * scale, pos[1] * scale);
+               cx.stroke();
+               cx.closePath();
+            }
+            old_pos = pos;
             
-            //var radius = Math.max(1, max_radius / (1 + Math.log(length)));
-            //var radius = 1;
+            var radius = Math.max(1, max_radius / (1 + Math.log(length)));
+            var radius = 1;
             var radius = count * 10 / limit;
             
             fillCircle(cx, pos[0] * scale, pos[1] * scale,
                        radius);
             
-            //console.info("Plotting " + prog);
-            //console.info(color);
-            //console.info(pos);
+            console.info("Plotting " + prog);
+            console.info(color);
+            console.info(pos);
         }
 
         max_len += 1;
